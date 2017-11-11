@@ -16,12 +16,12 @@ LLogger::~LLogger()
 
 LLogger::PrintThread LLogger::Info()
 {
-	return PrintThread(_mutex_stream,_output_stream,"[Info]",false);
+	return PrintThread(_mutex_stream,_output_stream,"[Info]",_enable_info);
 }
 
 LLogger::PrintThread LLogger::Err()
 {
-	return PrintThread(_mutex_stream, _output_stream, "[Error]");
+	return PrintThread(_mutex_stream, _output_stream, "[Error]",_enable_err);
 }
 
 void LLogger::Redirect(std::ostream& output_stream)
