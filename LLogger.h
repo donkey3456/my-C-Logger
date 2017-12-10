@@ -56,3 +56,16 @@ protected:
 	bool _enable_err;
 };
 
+class LoggableObj
+{
+public:
+	LoggableObj() {};
+	virtual ~LoggableObj() {};
+
+	void EnableInfo(bool enable) { _logger.EnableInfo(enable); }
+	void EnableErr(bool enable) { _logger.EnableErr(enable); }
+	void Redirect(std::ostream& output_stream) { _logger.Redirect(output_stream); }
+
+protected:
+	LLogger _logger;
+};
